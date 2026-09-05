@@ -1,0 +1,15 @@
+# include another-config
+set selection-clipboard clipboard
+# inverses the colours
+map i recolor
+map I set recolor-darkcolor '#1E1B18';; set recolor-lightcolor '#FDF4E3'
+# Colors
+# light mode
+# dark mode
+set recolor true
+set recolor-darkcolor '#FDF4E3'
+set recolor-lightcolor '#1E1B18'
+# set recolor-lightcolor '#1A1A1A'
+map R reload
+
+set default-bg '#1E1B18'

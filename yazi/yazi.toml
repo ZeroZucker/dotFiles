@@ -1,0 +1,71 @@
+[mgr]
+ratio = [1, 2, 4] # 1/7 + 2/7 + 4/7
+sort_by = "extension"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+linemode = "none"
+show_hidden = false
+show_symlink = false
+scrolloff = 200 # centers the cursor caus eit is larger than the screen height
+mouse_events = [ "click", "scroll", "drag" ]
+
+[preview]
+wrap = "no"
+tab_size = 4
+max_width = 600
+max_height = 900
+# cache_dir 
+image_delay = 30
+image_filer = "triangle" # arround 500ms
+image_quality = 50 # range 50-90 larger is better quality => more CPU demanding and larger cache files
+
+ueberzug_scale = 2
+ueberzug_offset = [ 0, 0, 0, 0 ]
+
+[opener]
+edit = [
+    { run = "nvim %s", block = true, orphan = true, for = "linux" }
+]
+
+play = [
+    { run = "vlc %s", block = false, orphan = true, desc = "Open vlc" }
+]
+
+open = [ 
+    { run = "xdg-open %s1", block = true, orphan = true, desc = "Open", for = "linux" }
+]
+
+image_viewer = [
+    { run = "feh %s", block = false, orpahn = true, desc = "Open with feh" }
+]
+
+reader = [
+    { run = "zathura %s", block = false, orphan = true, desc = "Open with zathura" }
+]
+
+set-wallpaper = [
+    { run = "hyprctl hyprpaper wallpaper ,%s1 && matugen image %s1 --prefer value", desc = "Set as wallpaper"}
+]
+
+
+[open]
+prepend_rules = [
+    # Image handling, you 
+    { url = "*jpg", use = ["image_viewer", "set-wallpaper"] },
+    { url = "*jpeg", use = ["image_viewer", "set-wallpaper"] },
+    { url = "*png", use = ["image_viewer", "set-wallpaper"] },
+    # videos
+    { url = "*.mp4", use = "play" },
+    # Files/Documents
+    { url = "*.pdf", use = "reader" },
+    { url = "*.epub", use = "reader"},
+]
+
+[input]
+cursor_blink = false
+######### TODO #######
+# ueberzug stuff Seemingly does not work
+# why does rund = $EDITOR %s not work???
+# the whole [plugin] try to look into previewers
+

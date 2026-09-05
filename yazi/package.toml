@@ -1,0 +1,12 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "muratoffalex/kanagawa-lotus"
+rev = "00dcc74"
+hash = "8fe01c79d91d7154ce231334cc7275f2"
+
+[[flavor.deps]]
+use = "ficd0/ashen:ashen"
+rev = "7d18c13"
+hash = "65b56e9ee65dd33eec62d6ca4209611b"
